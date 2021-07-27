@@ -2,10 +2,10 @@ const http = require('http')
 const path = require('path')
 
 // config
-const { parser } = require('./config/parser')
+const { parser } = require('../config/parser')
 
 // getter the currentPath and redirect to file html
-const currentPath = path.join(__dirname, '../public/index.html')
+const currentPath = path.join(__dirname, '../../public/index.html')
 
 // creating the server with nodeJS
 const server = http.createServer
