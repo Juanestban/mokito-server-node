@@ -6,11 +6,16 @@ function parser(currentPath, parsed) {
     const matchKey = html_string.match(/[^\{\}]+(?=\})/g)
     const fullname = 'Juan Esteban'
 
-    matchKey.forEach((matched) => {
-      const val = eval(matched)
-      const html_parsed = html_string.replace(`{${matched}}`, val)
-      parsed(html_parsed)
-    })
+    try {
+      matchKey.forEach((matched) => {
+        const val = eval(matched)
+        const html_parsed = html_string.replace(`{${matched}}`, val)
+        parsed(html_parsed)
+      })
+    } catch {
+      console.error("[+] matchKey hasn't any variable to find and replace")
+      parsed(html)
+    }
   })
 }
 
